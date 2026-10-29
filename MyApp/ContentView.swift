@@ -23,6 +23,7 @@ struct ContentView: View {
                 .tabItem { Label(TodoTab.done.title, systemImage: TodoTab.done.systemImage) }
                 .tag(TodoTab.done)
         }
+        .screenshotMode(selectedTab: $selectedTab)
         .onChange(of: AddTodoRequest.shared.isPending, initial: true) { _, isPending in
             // 잠금 화면의 "할 일 추가"로 열리면 오늘 탭으로 가서 폼을 띄운다.
             if isPending { selectedTab = .today }
